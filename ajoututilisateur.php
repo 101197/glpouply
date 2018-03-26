@@ -12,6 +12,14 @@
 
 <body>
   <?php include 'php/navbar.php'; ?>
+
+
+<?php
+  //Vérification du droit d'accès
+  if (isset($_SESSION['id']) && $_SESSION['pseudo'] == 'Admin') {
+
+?>
+
     <div class="row register-form">
         <div class="col-md-8 offset-md-2">
             <form class="custom-form">
