@@ -1,0 +1,31 @@
+#dribbble button{
+  background: #64dbdb;
+  background: -webkit-gradient(linear, 0% 50%, 0% 51%, from(#64dbdb), to(#56c6c6));
+  background: -moz-linear-gradient(0% 100% 90deg, #56c6c6 0%, #56c6c6 50%, #64dbdb 50%, #64dbdb 100%);
+  border: 0;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  color: #fcfcfc;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-size: 19px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 10px 0 20px 0;
+  text-align: center;
+  text-shadow: 0px -1px 1px rgba(104, 45, 64, .70);
+  width: 150px;
+  margin-left: 70%;
+}
+
+#dribbble button:hover{
+  background: #e2558b;
+  background: -moz-linear-gradient(0% 100% 90deg, #df3e7b 0%, #df3e7b 50%, #e2558b 50%, #e2558b 100%);
+  background: -webkit-gradient(linear, 0% 50%, 0% 51%, from(#e2558b), to(#df3e7b));
+}
+
+#dribbble button:active{
+  background: #c94477;
+  background: -moz-linear-gradient(0% 100% 90deg, #c22b65 0%, #c22b65 50%, #c94477 50%, #c94477 100%);
+  background: -webkit-gradient(linear, 0% 50%, 0% 51%, from(#c94477), to(#c22b65));
+}
