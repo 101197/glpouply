@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter tickets</title>
+    <title>utilisateur</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
@@ -15,13 +15,13 @@
             <thead>
                 <tr>
                     <th>Identifiant</th>
-                    <th>Titre</th>
-                    <th>Statut</th>
-                    <th>Dernière modification</th>
-                    <th>Date ouverture</th>
-                    <th>Priorité</th>
-                    <th>Demandeur</th>
-                    <th>Urgence</th>
+                    <th>Entité</th>
+                    <th>Nom</th>
+                    <th>E-mail</th>
+                    <th>Téléphone</th>
+                    <th>Lieu</th>
+                    <th>Actif</th>
+                    <th>Langue</th>
                 </tr>
             </thead>
             <tbody>
