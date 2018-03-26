@@ -16,7 +16,6 @@
                 <tr>
                     <th>Identifiant</th>
                     <th>Titre</th>
-                    <th>Entité</th>
                     <th>Statut</th>
                     <th>Dernière modification</th>
                     <th>Date ouverture</th>
@@ -35,7 +34,6 @@
                     <td>Cell 6</td>
                     <td>Cell 7</td>
                     <td>Cell 8</td>
-                    <td>Cell 9</td>
                 </tr>
                 <tr>
                     <td>Cell 3</td>
@@ -46,7 +44,6 @@
                     <td>Cell 6</td>
                     <td>Cell 7</td>
                     <td>Cell 8</td>
-                    <td>Cell 9</td>
                 </tr>
             </tbody>
         </table>
