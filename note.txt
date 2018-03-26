@@ -1,3 +1,3 @@
 navbar dans page connexion et ajoututilisateur
 
-index = connexion
+ajouterutilisateur ne s'affiche que pour les admin

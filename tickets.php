@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Ajouter tickets</title>
   </head>
   <body>
     <?php include 'php/navbar.php'; ?>
