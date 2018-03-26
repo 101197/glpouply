@@ -11,7 +11,33 @@
 </head>
 
 <body>
-  <?php include 'php/navbar.php'; ?>
+  <?php include 'php/navbar.php';
+
+  if(isset($_POST['formconnexion'])) {
+    $pseudoconnect = htmlspecialchars($_POST['pseudoconnect']);
+    $mdpconnect = sha1($_POST['mdpconnect']);
+    if(!empty($pseudoconnect) AND !empty($mdpconnect)) {
+      $requser = $bdd->prepare("SELECT client.IDClient, client.Pseudo, client.Email FROM client WHERE Pseudo = ? AND MotDePasse = ?");
+      $requser->execute(array($pseudoconnect, $mdpconnect));
+      $userexist = $requser->rowCount();
+      if($userexist == 1) {
+        $userinfo = $requser->fetch();
+        $_SESSION['id'] = $userinfo['IDClient'];
+        $_SESSION['pseudo'] = $userinfo['Pseudo'];
+        $_SESSION['mail'] = $userinfo['Email'];
+
+        echo '<script> document.location.replace("accueil.php"); </script>';
+      } else {
+        $erreur = "<br />Mauvais pseudo ou mauvais mot de passe !";
+      }
+    } else {
+      $erreur = "<br />Tous les champs doivent être complétés !";
+    }
+  }
+?>
+
+
+
     <div class="row register-form">
         <div class="col-md-8 offset-md-2">
             <form class="custom-form">
