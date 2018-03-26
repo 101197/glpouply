@@ -17,12 +17,18 @@
                 <div class="collapse navbar-collapse"
                     id="navcol-1">
                     <ul class="nav navbar-nav mr-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="parc.php">Parc</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="assistance.php">Assistance</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="gestion.php">Gestion</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="outils.php">Outils</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="administration.php">Administration</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="configuration.php">Configuration</a></li>
+                        <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Parc </a>
+                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="parc.php">Parc</a><a class="dropdown-item" role="presentation" href="ajoutercomposant.php">Ajouter composant</a></div>
+                        </li>
+                        <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Assistance </a>
+                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="tickets.php">Tickets</a><a class="dropdown-item" role="presentation" href="notes.php">Notes</a></div>
+                        </li>
+                        <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Administration </a>
+                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="utilisateur.php">Utilisateur</a><a class="dropdown-item" role="presentation" href="role.php">Rôle</a></div>
+                        </li>
+                        <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Mon compte </a>
+                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="profil.php">Profil</a><a class="dropdown-item" role="presentation" href="deconnexion.php">Deconnexion</a></div>
+                        </li>
                     </ul>
                     <span class="navbar-text actions">
                       <a class="btn btn-light action-button" role="button" href="#">Préférences</a>
