@@ -17,7 +17,7 @@
                 <div class="collapse navbar-collapse"
                     id="navcol-1">
                     <ul class="nav navbar-nav mr-auto">
-                        <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Parc </a>
+                        <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="parc.php">Parc </a>
                             <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="parc.php">Parc</a><a class="dropdown-item" role="presentation" href="ajoutercomposant.php">Ajouter composant</a></div>
                         </li>
                         <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Assistance </a>
