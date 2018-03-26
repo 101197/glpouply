@@ -10,8 +10,6 @@ class Utilisateur{
   private $activiteUser;
   private $langueUser;
 
-  private List<Tickets> lesTickets=new List<Tickets>();
-
   function __construct(){
     $this->nomUser;
     $this->mailUser;
