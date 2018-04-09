@@ -22,6 +22,8 @@
                     <h4>Vue personnelle</h4>
                     <p>A completer</p>
 
+                    <h3>Vos tickets en cours</h3>
+
                     <?php include "tableau.html";?>
 
 
@@ -55,6 +57,7 @@
       }else {
         $adminoption = ' ';
       }
+    }
 
     ?>
 
