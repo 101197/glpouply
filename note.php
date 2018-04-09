@@ -14,13 +14,14 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>Identifiant</th>
                     <th>Titre</th>
                     <th>Statut</th>
-                    <th>Date début note</th>
-                    <th>Date fin note</th>
+                    <th>Dernière modification</th>
+                    <th>Date ouverture</th>
+                    <th>Priorité</th>
+                    <th>Demandeur</th>
                     <th>Urgence</th>
-                    <th>Description</th>
-                    <th>Propriétaire</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +33,7 @@
                     <td>Cell 5</td>
                     <td>Cell 6</td>
                     <td>Cell 7</td>
+                    <td>Cell 8</td>
                 </tr>
                 <tr>
                     <td>Cell 3</td>
@@ -41,6 +43,7 @@
                     <td>Cell 5</td>
                     <td>Cell 6</td>
                     <td>Cell 7</td>
+                    <td>Cell 8</td>
                 </tr>
             </tbody>
         </table>
