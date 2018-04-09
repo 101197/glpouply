@@ -12,19 +12,25 @@
 
 <body>
   <?php include 'php/navbar.php';
+  require 'php/class/utilisateur.php';
 
   if(isset($_POST['formconnexion'])) {
     $pseudoconnect = htmlspecialchars($_POST['pseudoconnect']);
     $mdpconnect = sha1($_POST['mdpconnect']);
     if(!empty($pseudoconnect) AND !empty($mdpconnect)) {
-      $requser = $bdd->prepare("SELECT client.IDClient, client.Pseudo, client.Email FROM client WHERE Pseudo = ? AND MotDePasse = ?");
+      $requser = $bdd->prepare("SELECT utilisateur.idUser, utilisateur.nomUser, utilisateur.mailUser FROM client WHERE nomUser = ? AND mdpUser = ?");
       $requser->execute(array($pseudoconnect, $mdpconnect));
       $userexist = $requser->rowCount();
       if($userexist == 1) {
         $userinfo = $requser->fetch();
-        $_SESSION['id'] = $userinfo['IDClient'];
-        $_SESSION['pseudo'] = $userinfo['Pseudo'];
-        $_SESSION['mail'] = $userinfo['Email'];
+        $unutilisateur = new utilisateur();
+        $unutilisateur->setNomUser($userinfo['nomUser']);
+        $unutilisateur->setMailUseruser($userinfo['mailUser']);
+        $unutilisateur->setTelUser($userinfo['telUser']);
+        $unutilisateur->setAdresseUser($userinfo['adresseUser']);
+        $unutilisateur->setActiviteUser($userinfo['activiteUser']);
+        $unutilisateur->setLangueUser($userinfo['langueUser']);
+
 
         echo '<script> document.location.replace("accueil.php"); </script>';
       } else {

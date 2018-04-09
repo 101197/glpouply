@@ -45,9 +45,23 @@
             </div>
         </div>
     </div>
+
+    <?php
+    //test si un client est connecté
+    if (isset($_SESSION['idUser'])) {
+
+      //affiche les pages de gestion de l'admin
+      if ($_SESSION['idUser'] == 'Admin') {
+        $adminoption = '<a class="dropdown-item" role="presentation" href="/ajoututilisateur.php">Ajouter un utilisateur</a>';
+      }else {
+        $adminoption = ' ';
+      }
+
+    ?>
+
     <?php include 'php/footer.php'; ?>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    
+
   </body>
 </html>
