@@ -21,9 +21,8 @@
                 <div id="item-1-1" class="tab-pane fade show active" role="tabpanel" aria-labelledby="item-1-1-tab">
                     <h4>Vue personnelle</h4>
                     <p>A completer</p>
-                    <div class="block" id="dribbble">
-                      <button>Planning</button>
-                    </div>
+
+                    <?php include "tableau.html";?>
 
 
 
