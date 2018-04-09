@@ -22,6 +22,8 @@
                     <h4>Vue personnelle</h4>
                     <p>A completer</p>
 
+                    <?php include "index.html";?>
+
 
 
                 </div>
