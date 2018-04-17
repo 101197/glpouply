@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,18 +14,15 @@
   $erreur = "";
   if(isset($_POST['formconnexion'])) {
     $pseudoconnect = htmlspecialchars($_POST['nomUser']);
-    $mdpconnect = $_POST['mdpUser'];
-    var_dump($pseudoconnect);
-    var_dump($mdpconnect);
+    $mdpconnect = htmlspecialchars($_POST['mdpUser']); // htmlspecialchars pour éviter les injections de code
     if(!empty($pseudoconnect) AND !empty($mdpconnect)) {
       $requser = $bdd->prepare("SELECT * FROM UTILISATEUR WHERE nomUser = ? AND mdpUser = ?");
       $requser->execute(array($pseudoconnect, $mdpconnect));
-      var_dump($requser);
       $userexist = $requser->rowCount();
       var_dump($userexist);
       if($userexist == 1) {
         $userinfo = $requser->fetch();
-        $unutilisateur = new utilisateur();
+        $unutilisateur = new utilisateur;
         $unutilisateur->setNomUser($userinfo['nomUser']);
         $unutilisateur->setMailUser($userinfo['mailUser']);
         $unutilisateur->setTelUser($userinfo['telUser']);
@@ -42,9 +38,6 @@
     } else {
       $erreur = "<br />Tous les champs doivent être complétés !";
     }
-  }
-  else {
-    $erreur="blabbla";
   }
 ?>
 

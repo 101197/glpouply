@@ -1,3 +1,9 @@
 navbar dans page connexion et ajoututilisateur
 
 ajouterutilisateur ne s'affiche que pour les admin
+
+enlever le bouton préférence
+
+supprimer note.php
+
+hacher le mdp

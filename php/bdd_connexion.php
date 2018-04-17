@@ -5,4 +5,4 @@ try {
   echo "une erreur".$e->getMessage();
 }
 
- ?>
+?>
