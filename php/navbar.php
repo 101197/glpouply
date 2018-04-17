@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
 
+<?php
+session_start();
+include 'bdd_connexion.php';
+include 'class/utilisateur.php';
+?>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +38,16 @@
                     </ul>
                     <span class="navbar-text actions">
                       <a class="btn btn-light action-button" role="button" href="#">Préférences</a>
-                      <a class="btn btn-light action-button" role="button" href="php/deconnexion.php">Deconnexion</a>
+                      <?php
+                      if (isset($_SESSION['utilisateur'])){ //teste si l'utilisateur existe
+                        $user = $_SESSION['utilisateur'];
+                        if ($user->getActiviteUser() == "1"){  //si oui il le met
+                          ?>
+                          <a class="btn btn-light action-button" role="button" href="php/deconnexion.php">Deconnexion</a>
+                          <?php
+                        }
+                      }
+                      ?>
                     </span>
                   </div>
             </div>
