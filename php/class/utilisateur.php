@@ -4,6 +4,7 @@ class Utilisateur{
 
   //variables
   private $nomUser;
+  private $prenomUser;
   private $mailUser;
   private $telUser;
   private $adresseUser;
@@ -25,6 +26,14 @@ class Utilisateur{
 
   function getNomUser(){
     return $this->nomUser;
+  }
+
+  function setPrenomUser($pPrenomUser) {
+    $this->prenomUser = $pPrenomUser;
+  }
+
+  function getPrenomUser () {
+    return $this->prenomUser;
   }
 
   function setMailUser($pMailUser){

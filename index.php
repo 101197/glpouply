@@ -19,17 +19,10 @@
       $requser = $bdd->prepare("SELECT * FROM UTILISATEUR WHERE nomUser = ? AND mdpUser = ?");
       $requser->execute(array($pseudoconnect, $mdpconnect));
       $userexist = $requser->rowCount();
-      var_dump($userexist);
       if($userexist == 1) {
         $userinfo = $requser->fetch();
-        $unutilisateur = new utilisateur;
-        $unutilisateur->setNomUser($userinfo['nomUser']);
-        $unutilisateur->setMailUser($userinfo['mailUser']);
-        $unutilisateur->setTelUser($userinfo['telUser']);
-        $unutilisateur->setAdresseUser($userinfo['adresseUser']);
-        $unutilisateur->setActiviteUser($userinfo['activiteUser']);
-        $unutilisateur->setLangueUser($userinfo['langueUser']);
-        $_SESSION['utilisateur'] = $unutilisateur;
+        //mets l'id de l'utilisateur dans la session
+        $_SESSION['idutilisateur'] = $userinfo['idUser'];
 
         header('Location: accueil.php');
       } else {

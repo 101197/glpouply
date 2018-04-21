@@ -7,3 +7,5 @@ enlever le bouton préférence
 supprimer note.php
 
 hacher le mdp
+
+supprimer "langue" du tab

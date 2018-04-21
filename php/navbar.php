@@ -4,9 +4,10 @@
 <?php
 include 'include.php';
 
-if (isset($_SESSION['utilisateur'])){ //teste si l'utilisateur existe
-  $user = new utilisateur;
-  $user = $_SESSION['utilisateur'];
+//test si l'utilisateur est connecté
+if (isset($_SESSION['idutilisateur'])) {
+  //recupére l'utilisateur
+  $unutilisateur = getUser($_SESSION['idutilisateur'], $bdd);//appelle la fonction qui crée l'objet utilisateur
 }
 ?>
 
@@ -19,7 +20,7 @@ if (isset($_SESSION['utilisateur'])){ //teste si l'utilisateur existe
 </head>
 
 <?php
-if (isset($_SESSION['utilisateur'])){ //teste si l'utilisateur existe
+if (isset($_SESSION['idutilisateur'])){ //teste si l'utilisateur existe
   ?>
   <div>
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
@@ -35,38 +36,39 @@ if (isset($_SESSION['utilisateur'])){ //teste si l'utilisateur existe
               <div class="dropdown-menu" role="menu">
                 <a class="dropdown-item" role="presentation" href="parc.php">Parc</a>
                 <?php
-                //echo $user->getUser();
-                //if ($user->getActiviteUser() == 1 ){
-                  //echo '<a class="dropdown-item" role="presentation" href="ajoutercomposant.php">Ajouter composant</a>';
-                //}
+                if ($unutilisateur->getActiviteUser() == 1 ){
+                  echo '<a class="dropdown-item" role="presentation" href="ajoutercomposant.php">Ajouter composant</a>';
+                }
                 ?>
               </div>
             </li>
             <li class="dropdown">
               <a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Assistance </a>
               <div class="dropdown-menu" role="menu">
+                <a class="dropdown-item" role="presentation" href="ajoutticket.php">Ajouter ticket</a>
                 <a class="dropdown-item" role="presentation" href="tickets.php">Tickets</a>
-                <a class="dropdown-item" role="presentation" href="notes.php">Notes</a>
               </div>
             </li>
             <li class="dropdown">
               <a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Administration </a>
               <div class="dropdown-menu" role="menu">
-                <a class="dropdown-item" role="presentation" href="utilisateur.php">Utilisateur</a>
-                <a class="dropdown-item" role="presentation" href="role.php">Rôle</a>
+                <?php
+                if ($unutilisateur->getActiviteUser() == 1 ){
+                  echo '<a class="dropdown-item" role="presentation" href="utilisateur.php">Utilisateurs</a>';
+                  echo '<a class="dropdown-item" role="presentation" href="ajoututilisateur.php">Ajouter utilisateur</a>';
+                }
+                ?>
               </div>
             </li>
             <li class="dropdown">
-              <a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Mon compte </a>
+              <a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Mon compte (<?php echo $unutilisateur->getNomUser(); ?>) </a>
               <div class="dropdown-menu" role="menu">
                 <a class="dropdown-item" role="presentation" href="profil.php">Profil</a>
-                <a class="dropdown-item" role="presentation" href="deconnexion.php">Deconnexion</a>
               </div>
             </li>
           </ul>
           <span class="navbar-text actions">
-            <a class="btn btn-light action-button" role="button" href="#">Préférences</a>
-              <a class="btn btn-light action-button" role="button" href="php/deconnexion.php">Deconnexion</a>
+            <a class="btn btn-light action-button" role="button" href="php/deconnexion.php">Deconnexion</a>
           </span>
         </div>
       </div>
