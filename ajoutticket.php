@@ -41,7 +41,7 @@
                 <!-- dropdown pour le composant utilisé -->
                 <div id="lp-select1-wrapper" class="input-group">
                 <select class="form-control" id="lp-select1"><optgroup label="Composant"><option value="12" selected>?</option><option value="13">?</option><option value="14">?</option></optgroup></select>
-              </div><br />
+              </div>
 
                 <!-- dropdown pour l'utilisateur -->
                 <div id="lp-select1-wrapper" class="input-group">
