@@ -2,86 +2,55 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Tickets</title>
+    <title>Tickets tec</title>
   </head>
   <body>
-
     <div class="container">
-      <h1>Ajouter un ticket</h1>
-      <form action="" method="post">
-        <div class="row bg-light rounded">
-          <div class="col">
-            <div class="row">
-              <div class="col-sm-5">
-                <div class="form-inline m-2">
-                  <label class="mr-1">Nom du Produit :</label>
-                  <input type="text" class="form-control" name="nomproduit" value="<?php echo $nomproduit ?>" id="">
-                </div>
-              </div>
-              <div class="col-sm-5">
-                <div class="form-inline m-2">
-                  <label class="mr-1">Prix Unitaire HT :</label>
-                  <input type="text" class="form-control" name="prix" value="<?php echo $prix ?>" id="">
-                </div>
-              </div>
-              <div class="col-sm-5">
-                <div class="form-inline m-2">
-                  <label class="mr-1">Référence :</label>
-                  <input type="text" class="form-control" name="reference" value="<?php echo $reference ?>" id="">
-                </div>
-              </div>
-              <div class="col-sm-5">
-                <div class="form-inline m-2">
-                  <label class="mr-1">Quantité :</label>
-                  <input type="text" class="form-control" name="quantite" value="<?php echo $quantite ?>" id="">
-                </div>
-              </div>
-              <div class="col-sm-5">
-                <div class="form-inline m-2">
-                  <label class="mr-1">Catégorie :</label>
-                  <select class="form-control" name="categorie" id="">
-                    <?php
-                    //charge les categories
-                    $reqcategorie = $bdd->prepare("SELECT * FROM categorie");
-                    $reqcategorie->execute();
-                    $categorieinfo = $reqcategorie->fetchAll();
-                    foreach ($categorieinfo as $row) {
-                      if ($row["IdCategorie"] == $categorie) {
-                        echo '<option value="'.$row["IdCategorie"].'" selected="selected">'.$row["LibelleCategorie"].'</option>';
-                      }else {
-                        echo '<option value="'.$row["IdCategorie"].'">'.$row["LibelleCategorie"].'</option>';
-                      }
-                    }
-                    ?>
-                  </select>
-                </div>
-              </div>
-              <div class="col-sm-5">
-                <div class="form-inline m-2">
-                  <label class="mr-1">taille :</label>
-                  <select class="form-control" name="" id="taille">
-                    <?php
-                    //charge les categories
-                    $reqcategorie = $bdd->prepare("SELECT * FROM taille");
-                    $reqcategorie->execute();
-                    $categorieinfo = $reqcategorie->fetchAll();
-                    foreach ($categorieinfo as $row) {
-                      if ($row["IdCategorie"] == $taille) {
-                        echo '<option value="'.$row["idtaille"].'" selected="selected">'.$row["libelleTaille"].'</option>';
-                      }else {
-                        echo '<option value="'.$row["idtaille"].'">'.$row["libelleTaille"].'</option>';
-                      }
-                    }
-                    ?>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="form-group m-2">
-              <label class="mr-1">Description :</label>
-              <textarea class="form-control" rows="5" name="description" id="" style="min-height:100px;"><?php echo $description ?></textarea>
-            </div>
-          </div>
+<?php include 'php/navbar.php';
+    if (isset($_SESSION['idutilisateur'])) {
+      //test quand le bouton submitformaddticket éxécute le formulaire
+      if(isset($_POST['submitformaddticket'])) {
+        //met les informations du formulaire dans des variables
+        $titreticket = htmlspecialchars($_POST['titreTicket']);
+        $statutticket = htmlspecialchars($_POST['statutTicket']);
+        if (isset($_POST['prioriteTicket'])) {
+          $prioriteticket = 1;
+        } else {
+          $prioriteticket = 0;
+        }
+        $descticket = htmlspecialchars($_POST['descTicket']);
+        $idcomposant = intval(htmlspecialchars($_POST['idComposant']));
+        $iduser = intval($_SESSION['idutilisateur']);
 
+        //insère le nouveau ticket à la bdd
+        $reqcomposant = $bdd->prepare("INSERT INTO TICKETS(titreTicket, statutTicket, prioriteTicket, descTicket, idComposant, idUser) VALUES(?, ?, ?, ?, ?, ?)");
+        $reqcomposant->execute(array($titreticket, $statutticket, $prioriteticket, $descticket, $idcomposant, $iduser));
+      }
+      ?>
+
+      <h1>Cette page est une page technique qui sera supprimée quand le code sera copié/collé dans la vraie page</h1>
+
+      <form method="post">
+        <input type="text" name="titreTicket" value="" placeholder="Titre du ticket">
+        <input type="text" name="statutTicket" value="" placeholder="Statut du ticket">
+        <label>Prioritaire</label><input type="checkbox" name="prioriteTicket[]" value="cocher"> <!--checkbox car c'est un booléen-->
+        <input type="text" name="descTicket" value="" placeholder="Description du ticket">
+        <select class="" name="idComposant">
+          <?php
+          $reqcomposant = $bdd->prepare("SELECT * FROM COMPOSANT");
+          $reqcomposant->execute();
+          $dbrep = $reqcomposant->fetchAll();
+          foreach ($dbrep as $row) {
+            echo '<option value="'.$row['idComposant'].'">'.$row['nomComposant'].'</option>';
+          }
+
+          ?>
+        </select>
+        <input type="submit" name="submitformaddticket" value="submit">
+      </form>
+<?php }
+
+?>
+    </div>
   </body>
 </html>

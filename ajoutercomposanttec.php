@@ -6,7 +6,7 @@
   </head>
   <body>
     <?php include 'php/navbar.php';
-
+if (isset($_SESSION['idutilisateur']) && ($unutilisateur->getActiviteUser() == 1 )) {
     //test quand le bouton submitformaddcompo éxécute le formulaire
     if(isset($_POST['submitformaddcompo'])) {
       //met les informations du formulaire dans des variables
@@ -38,6 +38,10 @@
       <input type="submit" name="submitformaddcompo" value="submit">
     </form>
 
-    <?php include 'php/footer.php'; ?>
+    <?php
+    } else {
+      echo 'Vous devez être connecté !'; 
+    }
+    include 'php/footer.php'; ?>
   </body>
 </html>
