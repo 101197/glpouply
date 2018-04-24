@@ -10,45 +10,42 @@
   <body>
     <?php include 'php/navbar.php'; ?>
 
-    <div class="table-responsive">
+    <div class="container">
+      <h1>Cette page est une page technique qui sera supprimée quand le code sera copié/collé dans la vraie page</h1>
+      <div class="table-responsive">
         <table class="table">
-            <thead>
-                <tr>
-                    <th>Identifiant</th>
-                    <th>Entité</th>
-                    <th>Nom</th>
-                    <th>E-mail</th>
-                    <th>Téléphone</th>
-                    <th>Lieu</th>
-                    <th>Actif</th>
-                    <th>Langue</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Cell 1</td>
-                    <td>Cell 2</td>
-                    <td>Cell 3</td>
-                    <td>Cell 4</td>
-                    <td>Cell 5</td>
-                    <td>Cell 6</td>
-                    <td>Cell 7</td>
-                    <td>Cell 8</td>
-                </tr>
-                <tr>
-                    <td>Cell 3</td>
-                    <td>Cell 4</td>
-                    <td>Cell 3</td>
-                    <td>Cell 4</td>
-                    <td>Cell 5</td>
-                    <td>Cell 6</td>
-                    <td>Cell 7</td>
-                    <td>Cell 8</td>
-                </tr>
-            </tbody>
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Activité</th>
+              <th>E-mail</th>
+              <th>Téléphone</th>
+              <th>Adresse</th>
+              <th>Mot de passe</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $requser = $bdd->prepare("SELECT * FROM UTILISATEUR");
+            $requser->execute();
+            $dbrep = $requser->fetchAll();
+            foreach ($dbrep as $row){
+              echo "<tr>";
+              echo "<td>".$row['nomUser']."</td>"; //Affiche dans la colonne les infos de la bdd
+              echo "<td>".$row['prenomUser']."</td>";
+              echo "<td>".$row['activiteUser']."</td>";
+              echo "<td>".$row['mailUser']."</td>";
+              echo "<td>".$row['telUser']."</td>";
+              echo "<td>".$row['adresseUser']."</td>";
+              echo "<td>".$row['mdpUser']."</td>"; //propriétaire du ticket
+              echo "</tr>";
+            }
+            ?>
+          </tbody>
         </table>
+      </div>
     </div>
-
     <?php include 'php/footer.php'; ?>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

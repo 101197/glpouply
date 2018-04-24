@@ -12,7 +12,6 @@
 
     <div class="table-responsive">
         <table class="table">
-            <thead>
                 <tr>
                     <th>Identifiant</th>
                     <th>Entité</th>
@@ -23,29 +22,7 @@
                     <th>Actif</th>
                     <th>Langue</th>
                 </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Cell 1</td>
-                    <td>Cell 2</td>
-                    <td>Cell 3</td>
-                    <td>Cell 4</td>
-                    <td>Cell 5</td>
-                    <td>Cell 6</td>
-                    <td>Cell 7</td>
-                    <td>Cell 8</td>
-                </tr>
-                <tr>
-                    <td>Cell 3</td>
-                    <td>Cell 4</td>
-                    <td>Cell 3</td>
-                    <td>Cell 4</td>
-                    <td>Cell 5</td>
-                    <td>Cell 6</td>
-                    <td>Cell 7</td>
-                    <td>Cell 8</td>
-                </tr>
-            </tbody>
+
         </table>
     </div>
 
