@@ -2,90 +2,71 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Tickets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un ticket</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,700,400italic,300italic,700italic">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/TR-Form.css">
   </head>
   <body>
+    <?php include 'php/navbar.php'; ?>
 
-    <div class="container">
-      <h1>Ajouter un ticket</h1>
-      <form action="" method="post">
-        <div class="row bg-light rounded">
-          <div class="col">
-            <div class="row">
-              <div class="col-sm-5">
-                <div class="form-inline m-2">
-                  <label class="mr-1">Nom du Produit :</label>
-                  <input type="text" class="form-control" name="nomproduit" value="<?php //echo $nomproduit ?>" id="">
+    <h1 class="text-center">Ajout d'un ticket</h1>
+    <form class="register-form" style="margin:10px;padding:70px;">
+        <fieldset>
+            <div class="form-row">
+                <div class="col-6 col-sm-6 col-md-6">
+                    <div id="lp-name-wrapper"><input class="form-control" type="text" placeholder="Titre" id="lp-name"></div>
                 </div>
-              </div>
-              <div class="col-sm-5">
-                <div class="form-inline m-2">
-                  <label class="mr-1">Prix Unitaire HT :</label>
-                  <input type="text" class="form-control" name="prix" value="<?php //echo $prix ?>" id="">
+                <div class="col-6 col-sm-6 col-md-6">
+                    <div id="lp-lastname-wrapper"><input class="form-control" type="text" placeholder="Statut" id="lp-lastname"></div>
                 </div>
-              </div>
-              <div class="col-sm-5">
-                <div class="form-inline m-2">
-                  <label class="mr-1">Référence :</label>
-                  <input type="text" class="form-control" name="reference" value="<?php //echo $reference ?>" id="">
+                <div class="col-12 col-sm-6 col-md-12">
+                    <div id="lp-mail-wrapper"><input class="form-control" type="text" placeholder="Description" id="lp-mail"></div>
                 </div>
-              </div>
-              <div class="col-sm-5">
-                <div class="form-inline m-2">
-                  <label class="mr-1">Quantité :</label>
-                  <input type="text" class="form-control" name="quantite" value="<?php //echo $quantite ?>" id="">
-                </div>
-              </div>
-              <div class="col-sm-5">
-                <div class="form-inline m-2">
-                  <label class="mr-1">Catégorie :</label>
-                  <select class="form-control" name="categorie" id="">
-                    <?php
-                    // //charge les categories
-                    // $reqcategorie = $bdd->prepare("SELECT * FROM categorie");
-                    // $reqcategorie->execute();
-                    // $categorieinfo = $reqcategorie->fetchAll();
-                    // foreach ($categorieinfo as $row) {
-                    //   if ($row["IdCategorie"] == $categorie) {
-                    //     echo '<option value="'.$row["IdCategorie"].'" selected="selected">'.$row["LibelleCategorie"].'</option>';
-                    //   }else {
-                    //     echo '<option value="'.$row["IdCategorie"].'">'.$row["LibelleCategorie"].'</option>';
-                    //   }
-                    // }
-                    ?>
-                  </select>
-                </div>
-              </div>
-              <div class="col-sm-5">
-                <div class="form-inline m-2">
-                  <label class="mr-1">taille :</label>
-                  <select class="form-control" name="" id="taille">
-                    <?php
-                    // //charge les categories
-                    // $reqcategorie = $bdd->prepare("SELECT * FROM taille");
-                    // $reqcategorie->execute();
-                    // $categorieinfo = $reqcategorie->fetchAll();
-                    // foreach ($categorieinfo as $row) {
-                    //   if ($row["IdCategorie"] == $taille) {
-                    //     echo '<option value="'.$row["idtaille"].'" selected="selected">'.$row["libelleTaille"].'</option>';
-                    //   }else {
-                    //     echo '<option value="'.$row["idtaille"].'">'.$row["libelleTaille"].'</option>';
-                    //   }
-                    // }
-                    ?>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="form-group m-2">
-              <label class="mr-1">Description :</label>
-              <textarea class="form-control" rows="5" name="description" id="" style="min-height:100px;"><?php //echo $description ?></textarea>
-            </div>
-          </div>
 
-          <script src="assets/js/jquery.min.js"></script>
-          <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+                <div class="col-12 col-sm-6 col-md-12">
+                    <div id="customfield1-wrapper"><input class="form-control" type="text" placeholder="Priorité" id="customfield1"></div>
+                </div>
+                <div class="col-6 col-sm-6 col-md-6">
+                    <div id="lp-title-wrapper"><input class="form-control" type="text" placeholder="Date ouverture" id="lp-title"></div>
+                </div>
+                <div class="col-6 col-sm-6 col-md-6">
+                    <div id="lp-title-wrapper"><input class="form-control" type="text" placeholder="Date cloture" id="lp-title"></div>
+                </div>
+
+                <!-- dropdown pour le composant utilisé -->
+                <div id="lp-select1-wrapper" class="input-group">
+                <select class="form-control" id="lp-select1"><optgroup label="Composant"><option value="12" selected>?</option><option value="13">?</option><option value="14">?</option></optgroup></select>
+              </div><br />
+
+                <!-- dropdown pour l'utilisateur -->
+                <div id="lp-select1-wrapper" class="input-group">
+                <select class="form-control" id="lp-select1"><optgroup label="Utilisateur"><option value="12" selected>?</option><option value="13">?</option><option value="14">?</option></optgroup></select>
+                </div>
+
+
+
+                <div class="col-md-12"><input class="form-control d-none" type="text" id="lp-country"><input class="form-control d-none" type="text" id="lp-website"><input class="form-control d-none" type="text" id="lp-city"><input class="form-control d-none" type="text" id="customfield10">
+                    <input class="form-control d-none" type="text" id="customfield9"><input class="form-control d-none" type="text" id="customfield8"><input class="form-control d-none" type="text" id="customfield7"><input class="form-control d-none" type="text" id="customfield6"><input class="form-control d-none" type="text"
+                            id="customfield5"><input class="form-control d-none" type="text" id="customfield4"><input class="form-control d-none" type="text" id="customfield3"><input class="form-control d-none" type="text" id="customfield2"><input class="form-control d-none"
+                            type="text" id="lp-select3"><input class="form-control d-none" type="text" id="lp-select2"><input class="form-control d-none" type="text" id="lp-check5"><input class="form-control d-none" type="text" id="lp-check4"><input class="form-control d-none"
+                            type="text" id="lp-check3"><input class="form-control d-none" type="text" id="lp-check2"><input class="form-control d-none" type="text" id="lp-telareacode"><input class="form-control d-none" type="text" id="lp-telcountrycode"></div>
+                <div class="col-12 col-sm-12 col-md-12">
+                  <div class="set_2_button color5 set_2_btn-2 icon-down"><span>Ajouter le composant</span></div>
+                </div>
+            <div class="col-md-12">
+                <div class="push-50"></div>
+            </div>
+            </div>
+        </fieldset>
+    </form>
+    <?php include 'php/footer.php'; ?>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
