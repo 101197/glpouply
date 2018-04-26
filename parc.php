@@ -10,19 +10,18 @@
   <body>
     <?php include 'php/navbar.php'; ?>
 
+    <h1 class="text-center">Parc</h1><br />
     <div class="table-responsive">
         <table class="table">
             <thead>
                 <tr>
                     <th>Nom</th>
-                    <th>Entité</th>
-                    <th>Statut</th>
-                    <th>Fabricant</th>
                     <th>N° de série</th>
                     <th>Type</th>
                     <th>Modèle</th>
-                    <th>Lieu</th>
-                    <th>Dernière Modification</th>
+                    <th>Fabricant</th>
+                    <th>Adresse Mac</th>
+                    <th>Salle</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,8 +33,6 @@
                     <td>Cell 5</td>
                     <td>Cell 6</td>
                     <td>Cell 7</td>
-                    <td>Cell 8</td>
-                    <td>Cell 9</td>
                 </tr>
                 <tr>
                     <td>Cell 3</td>
@@ -45,8 +42,6 @@
                     <td>Cell 5</td>
                     <td>Cell 6</td>
                     <td>Cell 7</td>
-                    <td>Cell 8</td>
-                    <td>Cell 9</td>
                 </tr>
             </tbody>
         </table>

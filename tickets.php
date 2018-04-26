@@ -10,17 +10,19 @@
   <body>
     <?php include 'php/navbar.php'; ?>
 
+    <h1 class="text-center">Tickets</h1><br />
     <div class="table-responsive">
       <table class="table">
         <thead>
           <tr>
             <th>Titre</th>
             <th>Statut</th>
-            <th>Date début note</th>
-            <th>Date fin note</th>
-            <th>Urgence</th>
-            <th>Description</th>
-            <th>Propriétaire</th>
+            <th>Descrption</th>
+            <th>Priorité</th>
+            <th>Date ouverture</th>
+            <th>Date cloture</th>
+            <th>Composant</th>
+            <th>Utilisateur</th>
           </tr>
         </thead>
         <tbody>
@@ -32,6 +34,7 @@
             <td>Cell 5</td>
             <td>Cell 6</td>
             <td>Cell 7</td>
+            <td>Cell 8</td>
           </tr>
           <tr>
             <td>Cell 3</td>
@@ -41,6 +44,7 @@
             <td>Cell 5</td>
             <td>Cell 6</td>
             <td>Cell 7</td>
+            <td>Cell 8</td>
           </tr>
         </tbody>
       </table>

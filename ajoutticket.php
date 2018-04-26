@@ -15,7 +15,7 @@
     <?php include 'php/navbar.php'; ?>
 
     <h1 class="text-center">Ajout d'un ticket</h1>
-    <form class="register-form" style="margin:10px;padding:70px;">
+    <form class="register-form" style="margin:1px;padding:5%;">
         <fieldset>
             <div class="form-row">
                 <div class="col-6 col-sm-6 col-md-6">
