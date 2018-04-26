@@ -12,22 +12,24 @@ div.push-50 {
 
 div.input-group {
   margin-bottom:10px;
+  margin-left:0.5%;
+  width: 99.5%;
 }
 
 .register-form {
-  padding:5%;
   margin-bottom:10px;
 }
 .register-form input {
   margin-bottom:10px;
 }
 
-.form-check input {
-  margin-left: 1%;
+div.form-check {
+  margin-left:-79%;
+  margin-top:1%;
 }
 
-.checboxtext {
-  margin-left: 5%;
+div.form-check label {
+  margin-top:0.30%;
 }
 
 
