@@ -15,15 +15,25 @@
     <?php include 'php/navbar.php'; ?>
 
     <h1 class="text-center">Ajout d'un ticket</h1>
-    <form class="register-form" style="margin:1px;padding:5%;">
+    <form class="register-form">
         <fieldset>
             <div class="form-row">
                 <div class="col-6 col-sm-6 col-md-6">
                     <div id="lp-name-wrapper"><input class="form-control" type="text" placeholder="Titre" id="lp-name"></div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-6">
-                    <div id="lp-lastname-wrapper"><input class="form-control" type="text" placeholder="Statut" id="lp-lastname"></div>
+                    <div id="lp-select1-wrapper" class="input-group">
+                      <select class="form-control" id="lp-select1">
+                        <optgroup label="Statut">
+                          <option value="12" selected="">Non traité</option>
+                          <option value="13">En cours de traitement</option>
+                          <option value="14">Traité</option>
+                        </optgroup>
+                      </select>
+                    </div>
                 </div>
+
+
                 <div class="col-12 col-sm-6 col-md-12">
                     <div id="lp-mail-wrapper"><input class="form-control" type="text" placeholder="Description" id="lp-mail"></div>
                 </div>
@@ -35,18 +45,35 @@
                     <div id="lp-title-wrapper"><input class="form-control" type="text" placeholder="Date ouverture" id="lp-title"></div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-6">
-                    <div id="lp-title-wrapper"><input class="form-control" type="text" placeholder="Date cloture" id="lp-title"></div>
+                  <div id="lp-check1-wrapper">
+                    <div class="form-check"><input class="form-check-input" type="checkbox" id="lp-check1"><label class="form-check-label checboxtext" for="lp-check1">Priorité</label></div>
+                  </div>
                 </div>
 
                 <!-- dropdown pour le composant utilisé -->
                 <div id="lp-select1-wrapper" class="input-group">
-                <select class="form-control" id="lp-select1"><optgroup label="Composant"><option value="12" selected>?</option><option value="13">?</option><option value="14">?</option></optgroup></select>
-              </div>
+                  <select class="form-control" id="lp-select1">
+                    <optgroup label="Composant">
+                      <option value="12">?</option>
+                      <option value="13">?</option>
+                      <option value="14">?</option>
+                    </optgroup>
+                  </select>
+                </div>
 
                 <!-- dropdown pour l'utilisateur -->
                 <div id="lp-select1-wrapper" class="input-group">
-                <select class="form-control" id="lp-select1"><optgroup label="Utilisateur"><option value="12" selected>?</option><option value="13">?</option><option value="14">?</option></optgroup></select>
+                  <select class="form-control" id="lp-select1">
+                    <optgroup label="Utilisateur">
+                      <option value="12">?</option>
+                      <option value="13">?</option>
+                      <option value="14">?</option>
+                    </optgroup>
+                  </select>
                 </div>
+
+
+
 
 
 
