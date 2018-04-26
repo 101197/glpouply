@@ -38,6 +38,7 @@
               echo "<td>".$row['prioriteTicket']."</td>";
               echo "<td>".$row['descTicket']."</td>";
               echo "<td>".$row['idUser']."</td>"; //propriétaire du ticket
+              echo '<td><button onclick="document.location.href = \'modifierticket.php?idTicket='.$row["idTicket"].'\'">Modifier</button></td>';
               echo "</tr>";
             }
             ?>
