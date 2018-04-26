@@ -19,11 +19,12 @@
 
           $idticket = $_GET['idTicket'];
 
-          //teste si les champs ne sont pas vides
-          if (!empty($_POST['statutTicket'])) {
 
             //si le bouton "Valider" est clické
             if (isset($_POST['formmodifierticket'])) {
+
+              //teste si les champs ne sont pas vides
+              if (!empty($_POST['statutTicket'])) {
 
               //variables
               $statutticket = htmlspecialchars($_POST['statutTicket']);
@@ -39,10 +40,10 @@
               $reqticket->execute(array($statutticket, $prioriteticket, $idticket));
               header("Location: tickets.php");
             }
-
-          }else {
-            echo "Les champs statut du tiket et priorité du ticket ne peuvent pas être vides !";
+            else {
+            echo "Les champs statut et priorité doivent être complétés !";
           }
+        }
 
           if (isset($_POST['cloreTicket'])) {
             $dateclotureticket = date('Y-m-d H:i:s');
@@ -72,8 +73,8 @@
           $reqcomposant->execute(array($idcomposant));
           $dbrepcompo = $reqcomposant->fetch();
           $nomComposant = $dbrepcompo['nomComposant'];
+          ?>
 
-            ?>
             <div>
               Titre du ticket : <?php echo $titreTicket; ?>
             </div>
@@ -141,7 +142,7 @@
               <button type="button" class="btn btn-danger btn-lg" onclick="document.location.replace('tickets.php')">Retour</button>
             </div>
             <?php
-      }
+        }
       } else {
             ?>
             <div class="container mt-3 text-center">
