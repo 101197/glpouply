@@ -35,9 +35,11 @@
             $mdpuser = htmlspecialchars($_POST['mdpUser']);
             $mdpuser2 = htmlspecialchars($_POST['mdpUser2']);
             if ($mdpuser = $mdpuser2) {
+              $salt = 'SuperSalt';
+              $pass_hache = sha1($nomuser . hash('sha256', $salt) . $_POST['mdpUser']);
               //insère le nouveau ticket à la bdd
               $requser = $bdd->prepare("INSERT INTO UTILISATEUR(nomUser, activiteUser, prenomUser, mailUser, telUser, adresseUser, mdpUser) VALUES(?, ?, ?, ?, ?, ?, ?)");
-              $requser->execute(array($nomuser, $activiteuser, $prenomuser, $mailuser, $teluser, $adresseuser, $mdpuser));
+              $requser->execute(array($nomuser, $activiteuser, $prenomuser, $mailuser, $teluser, $adresseuser, $pass_hache));
             } else {
               echo "Vous devez mettre le même mot de passe";
             }

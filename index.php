@@ -11,13 +11,24 @@
 
 <body>
   <?php include 'php/navbar.php';
+
+
+
+try {
+  $bdd = new PDO('mysql:host=ppe2.ddns.net;dbname=glpoulpi', 'glpoulpi', 'glpoulpi');//crée une connexion a la bdd
+} catch (Exception $e) {
+  die('Erreur :'.$e->getMessage());
+}
+
   $erreur = "";
   if(isset($_POST['formconnexion'])) {
     $pseudoconnect = htmlspecialchars($_POST['nomUser']);
-    $mdpconnect = htmlspecialchars($_POST['mdpUser']); // htmlspecialchars pour éviter les injections de code
-    if(!empty($pseudoconnect) AND !empty($mdpconnect)) {
+    //Hachage du mot de passe
+    $salt = 'SuperSalt';
+    $pass_hache = sha1($pseudoconnect . hash('sha256', $salt) . $_POST['mdpUser']);
+    if(!empty($pseudoconnect) AND !empty($_POST['mdpUser'])) {
       $requser = $bdd->prepare("SELECT * FROM UTILISATEUR WHERE nomUser = ? AND mdpUser = ?");
-      $requser->execute(array($pseudoconnect, $mdpconnect));
+      $requser->execute(array($pseudoconnect, $pass_hache));
       $userexist = $requser->rowCount();
       if($userexist == 1) {
         $userinfo = $requser->fetch();
