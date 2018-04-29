@@ -12,23 +12,47 @@
     <link rel="stylesheet" href="assets/css/TR-Form.css">
     <link rel="stylesheet" href="assets/css/Pretty-Registration-Form.css">
   </head>
+
   <body>
-    <?php include 'php/navbar.php'; ?>
+    <div class="container">
+<?php include 'php/navbar.php';
+    if (isset($_SESSION['idutilisateur'])) {
+      //test quand le bouton submitformaddticket éxécute le formulaire
+      if(isset($_POST['submitformaddticket'])) {
+        //met les informations du formulaire dans des variables
+        $titreticket = htmlspecialchars($_POST['titreTicket']);
+        $statutticket = htmlspecialchars($_POST['statutTicket']);
+        if (isset($_POST['prioriteTicket'])) {
+          $prioriteticket = 1;
+        } else {
+          $prioriteticket = 0;
+        }
+        $descticket = htmlspecialchars($_POST['descTicket']);
+        $idcomposant = intval(htmlspecialchars($_POST['idComposant']));
+        $iduser = intval($_SESSION['idutilisateur']);
+
+        //insère le nouveau ticket à la bdd
+        $reqcomposant = $bdd->prepare("INSERT INTO TICKETS(titreTicket, statutTicket, prioriteTicket, descTicket, idComposant, idUser) VALUES(?, ?, ?, ?, ?, ?)");
+        $reqcomposant->execute(array($titreticket, $statutticket, $prioriteticket, $descticket, $idcomposant, $iduser));
+      }
+      ?>
 
     <div class="row register-form">
       <div class="col-md-8 offset-md-2">
         <form class="custom-form">
           <h1>Ajouter un  ticket</h1>
-            <form class="register-form">
+            <form class="register-form" method="post">
               <fieldset>
                 <div class="form-row">
+
                   <div class="col-6 col-sm-6 col-md-6">
-                    <div id="lp-name-wrapper"><input class="form-control" type="text" placeholder="Titre" id="lp-name"></div>
+                    <div><input class="form-control" type="text" name="titreTicket" value="" placeholder="Titre"></div>
                   </div>
+
                   <div class="col-6 col-sm-6 col-md-6">
-                    <div id="lp-select1-wrapper" class="input-group">
-                      <select class="form-control" id="lp-select1">
-                        <optgroup label="Statut">
+                    <div class="input-group">
+                      <select class="form-control">
+                        <optgroup name="statutTicket" label="Statut">
                           <option value="12" selected="">Non traité</option>
                           <option value="13">En cours de traitement</option>
                           <option value="14">Traité</option>
@@ -37,67 +61,66 @@
                     </div>
                   </div>
 
-
                   <div class="col-12 col-sm-6 col-md-12">
-                    <div id="lp-mail-wrapper"><input class="form-control" type="text" placeholder="Description" id="lp-mail"></div>
+                    <div><input class="form-control" type="text" name="descTicket" value="" placeholder="Description"></div>
                   </div>
 
-                  <div class="col-12 col-sm-6 col-md-12">
-                    <div id="customfield1-wrapper"><input class="form-control" type="text" placeholder="Priorité" id="customfield1"></div>
-                  </div>
                   <div class="col-6 col-sm-6 col-md-6">
-                    <div id="lp-title-wrapper"><input class="form-control" type="text" placeholder="Date ouverture" id="lp-title"></div>
+                    <div><input class="form-control" type="text" placeholder="Date ouverture"></div>
                   </div>
+
                   <div class="col-6 col-sm-6 col-md-6">
-                    <div id="lp-check1-wrapper">
-                      <div class="form-check"><input class="form-check-input" type="checkbox" id="lp-check1"><label class="form-check-label checboxtext" for="lp-check1">Priorité</label></div>
+                    <div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="prioriteTicket[]" value="cocher">
+                        <label class="form-check-label checboxtext">Priorité</label>
+                      </div>
                     </div>
                   </div>
 
                   <!-- dropdown pour le composant utilisé -->
-                  <div id="lp-select1-wrapper" class="input-group">
-                    <select class="form-control" id="lp-select1">
-                      <optgroup label="Composant">
-                        <option value="12">?</option>
-                        <option value="13">?</option>
-                        <option value="14">?</option>
-                      </optgroup>
+                  <div class="input-group">
+                    <select class="form-control" name="idComposant">
+                      <?php
+                      $reqcomposant = $bdd->prepare("SELECT * FROM COMPOSANT");
+                      $reqcomposant->execute();
+                      $dbrep = $reqcomposant->fetchAll();
+                      foreach ($dbrep as $row) {
+                        echo '<option value="'.$row['idComposant'].'">'.$row['nomComposant'].'</option>';
+                      }
+                      ?>
                     </select>
                   </div>
 
                   <!-- dropdown pour l'utilisateur -->
-                  <div id="lp-select1-wrapper" class="input-group">
-                    <select class="form-control" id="lp-select1">
-                      <optgroup label="Utilisateur">
-                        <option value="12">?</option>
-                        <option value="13">?</option>
-                        <option value="14">?</option>
-                      </optgroup>
+                  <div class="input-group">
+                    <select class="form-control" name="idUser">
+                      <?php
+                      $reqcomposant = $bdd->prepare("SELECT * FROM UTILISATEUR");
+                      $reqcomposant->execute();
+                      $dbrep = $reqcomposant->fetchAll();
+                      foreach ($dbrep as $row) {
+                        echo '<option value="'.$row['idUser'].'">'.$row['nomUser'].'</option>';
+                      }
+                      ?>
                     </select>
                   </div>
 
+                  <div class="col-12 col-sm-12 col-md-12">
+                    <button type="submit" name="submitformaddticket" class="set_2_button color5 set_2_btn-2 icon-down">Valider</button>
+                  </div>
 
-
-
-
-
-                  <div class="col-md-12"><input class="form-control d-none" type="text" id="lp-country"><input class="form-control d-none" type="text" id="lp-website"><input class="form-control d-none" type="text" id="lp-city"><input class="form-control d-none" type="text" id="customfield10">
-                    <input class="form-control d-none" type="text" id="customfield9"><input class="form-control d-none" type="text" id="customfield8"><input class="form-control d-none" type="text" id="customfield7"><input class="form-control d-none" type="text" id="customfield6"><input class="form-control d-none" type="text"
-                    id="customfield5"><input class="form-control d-none" type="text" id="customfield4"><input class="form-control d-none" type="text" id="customfield3"><input class="form-control d-none" type="text" id="customfield2"><input class="form-control d-none"
-                    type="text" id="lp-select3"><input class="form-control d-none" type="text" id="lp-select2"><input class="form-control d-none" type="text" id="lp-check5"><input class="form-control d-none" type="text" id="lp-check4"><input class="form-control d-none"
-                    type="text" id="lp-check3"><input class="form-control d-none" type="text" id="lp-check2"><input class="form-control d-none" type="text" id="lp-telareacode"><input class="form-control d-none" type="text" id="lp-telcountrycode"></div>
-                    <div class="col-12 col-sm-12 col-md-12">
-                      <div class="set_2_button color5 set_2_btn-2 icon-down"><span>Ajouter le composant</span></div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="push-50"></div>
-                    </div>
                   </div>
                 </fieldset>
               </form>
           </form>
         </div>
       </div>
+
+    <?php }
+
+    ?>
+        </div>
 
     <?php include 'php/footer.php'; ?>
 

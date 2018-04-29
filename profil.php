@@ -20,10 +20,6 @@
       </div>
       <form>
         <div class="form-row profile-row">
-          <div class="col-md-4 relative">
-            <div class="avatar">
-              <div class="avatar-bg center"></div>
-            </div><input type="file" class="form-control" name="avatar-file"></div>
             <div class="col-md-8">
               <h1>Profil </h1>
               <hr>

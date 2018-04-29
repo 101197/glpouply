@@ -32,6 +32,16 @@ div.form-check label {
   margin-top:0.30%;
 }
 
+div.form-check2 input {
+  margin-left:42%;
+  margin-top:7%;
+}
+
+div.form-check2 label {
+  margin-top:6.7%;
+  margin-right:-58%;
+}
+
 
 .set_2_button {
   font:inherit;
@@ -69,11 +79,6 @@ div.form-check label {
   display:inline-block;
   transition:all 0.5s;
   text-shadow:2px 2px #2779a3;
-}
-
-.icon-down:before {
-  content:"Valider";
-  position:absolute;
 }
 
 .set_2_btn-2:before {
@@ -135,11 +140,6 @@ div.form-check label {
   display:inline-block;
   transition:all 0.5s;
   text-shadow:2px 2px #2779a3;
-}
-
-.icon-down:before {
-  content:"Valider";
-  position: absolute;
 }
 
 .set_2_btn-2:before {

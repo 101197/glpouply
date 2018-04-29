@@ -2,11 +2,53 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Composants</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/TR-Form.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Registration-Form.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
   </head>
   <body>
     <?php include 'php/navbar.php'; ?>
 
+    <h1 class="text-center">Composants</h1><br />
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>N° de série</th>
+                    <th>Type</th>
+                    <th>Modèle</th>
+                    <th>Fabricant</th>
+                    <th>Adresse Mac</th>
+                    <th>Salle</th>
+                    <td> </td>
+                </tr>
+                <?php
+                $reqcomposant = $bdd->prepare("SELECT * FROM COMPOSANT");
+                $reqcomposant->execute();
+                $dbrep = $reqcomposant->fetchAll();
+                foreach ($dbrep as $row){
+                  echo "<tr>";
+                  echo "<td>".$row['nomComposant']."</td>"; //Affiche dans la colonne les infos de la bdd
+                  echo "<td>".$row['numSerie']."</td>";
+                  echo "<td>".$row['typeComposant']."</td>";
+                  echo "<td>".$row['modeleComposant']."</td>";
+                  echo "<td>".$row['fabricantComposant']."</td>";
+                  echo "<td>".$row['adresseMac']."</td>";
+                  echo "<td>".$row['idSalle']."</td>";
+                  echo '<td><button class="btn btn-primary form-btn" onclick="document.location.href = \'modifiercomposant.php?idComposant='.$row["idComposant"].'\'">Modifier</button></td>';
+                  echo "</tr>";
+                }
+                ?>
+            </thead>
+        </table>
+    </div>
+
     <?php include 'php/footer.php'; ?>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
