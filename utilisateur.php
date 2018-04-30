@@ -21,7 +21,32 @@
                     <th>Lieu</th>
                     <th>Actif</th>
                     <th>Langue</th>
+                    <th></th>
                 </tr>
+                <tbody>
+                  <tr>
+                    <td>Cell 1</td>
+                    <td>Cell 2</td>
+                    <td>Cell 3</td>
+                    <td>Cell 4</td>
+                    <td>Cell 5</td>
+                    <td>Cell 6</td>
+                    <td>Cell 7</td>
+                    <td>Cell 8</td>
+                    <td><button class="btn btn-primary form-btn" onclick="document.location.href = \'modifierticket.php?idTicket='.$row["idTicket"].'\'">Modifier</button></td>
+                  </tr>
+                  <tr>
+                    <td>Cell 3</td>
+                    <td>Cell 4</td>
+                    <td>Cell 3</td>
+                    <td>Cell 4</td>
+                    <td>Cell 5</td>
+                    <td>Cell 6</td>
+                    <td>Cell 7</td>
+                    <td>Cell 8</td>
+                    <td><button class="btn btn-primary form-btn" onclick="document.location.href = \'modifierticket.php?idTicket='.$row["idTicket"].'\'">Modifier</button></td>
+                  </tr>
+                </tbody>
 
         </table>
     </div>

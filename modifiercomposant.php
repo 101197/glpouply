@@ -2,7 +2,14 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Modifier composant</title>
+    <title>Modifier un composant</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Registration-Form.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,700,400italic,300italic,700italic">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/TR-Form.css">
   </head>
   <body>
 
@@ -60,6 +67,8 @@
         $idsalle = $dbrep["idSalle"];
         ?>
 
+<!-- tableau qui marche
+
         <form method="post">
           <input type="text" name="nomComposant" value="<?php echo $dbrep["nomComposant"]; ?>">
           <input type="text" name="numSerie" value="<?php echo $dbrep["numSerie"]; ?>">
@@ -69,9 +78,65 @@
           <input type="text" name="typeComposant" value="<?php echo $dbrep["typeComposant"]; ?>">
           <input type="text" name="idSalle" value="<?php echo $dbrep["idSalle"]; ?>">
           <div>
-            <button type="submit" name="formmodifiercomposant" class="btn btn-success btn-lg float-right">Modifier</button>
+            <button type="submit" name="formmodifiercomposant">Modifier</button>
           </div>
         </form>
+-->
+
+        <div class="row register-form">
+          <div class="col-md-8 offset-md-2">
+            <form class="custom-form">
+              <h1>Modifier un  composant</h1>
+              <form class="register-form" method="post">
+                <fieldset>
+                  <div class="form-row">
+
+                    <div class="col-6 col-sm-6 col-md-6">
+                      <div><label>Nom</label><input class="form-control" type="text" name="nomComposant" value="<?php echo $dbrep["nomComposant"]; ?>"></div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6">
+                      <div><label>N° de série</label><input class="form-control" type="text" name="numSerie" value="<?php echo $dbrep["numSerie"]; ?>"></div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6">
+                      <div><label>Adresse Mac</label><input class="form-control" type="text" name="adresseMac" value="<?php echo $dbrep["adresseMac"]; ?>"></div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6">
+                      <div><label>Modèle</label><input class="form-control" type="text" name="modeleComposant" value="<?php echo $dbrep["modeleComposant"]; ?>"></div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6">
+                      <div><label>Fabricant</label><input class="form-control" type="text" name="fabricantComposant" value="<?php echo $dbrep["fabricantComposant"]; ?>"></div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6">
+                      <div><label>Type</label><input class="form-control" type="text" name="typeComposant" value="<?php echo $dbrep["typeComposant"]; ?>"></div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-12">
+                      <div><label>Salle</label>
+                        <div class="input-group">
+                          <select class="form-control" name="idSalle">
+                            <?php
+                            $reqcomposant = $bdd->prepare("SELECT * FROM SALLE");
+                            $reqcomposant->execute();
+                            $dbrep = $reqcomposant->fetchAll();
+                            foreach ($dbrep as $row) {
+                              echo '<option value="'.$row['idSalle'].'">'.$row['libelleSalle'].'</option>';
+                            }
+                            ?>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-12">
+                      <button type="submit" name="formmodifiercomposant" class="set_2_button color5 set_2_btn-2 icon-down">Modifier</button>
+                    </div>
+
+                </fieldset>
+            </form>
+          </form>
+        </div>
+      </div>
+    </div>
 
 
         <?php

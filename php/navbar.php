@@ -35,6 +35,7 @@
                 <a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="parc.php">Parc </a>
                 <div class="dropdown-menu" role="menu">
                   <a class="dropdown-item" role="presentation" href="parc.php">Parc</a>
+                  <a class="dropdown-item" role="presentation" href="composant.php">Composants</a>
                   <?php
                   if ($unutilisateur->getActiviteUser() == 1 ){
                     echo '<a class="dropdown-item" role="presentation" href="ajoutercomposant.php">Ajouter composant</a>';

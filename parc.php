@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parc</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/TR-Form.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Registration-Form.css">
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
   <body>
@@ -23,6 +25,7 @@
                     <th>Fabricant</th>
                     <th>Type</th>
                     <th>Salle</th>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
