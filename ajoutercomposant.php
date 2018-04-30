@@ -28,7 +28,6 @@
       $fabricantcomposant = htmlspecialchars($_POST['fabricantComposant']);
       $typecomposant = htmlspecialchars($_POST['typeComposant']);
       $idsalle = intval(htmlspecialchars($_POST['idSalle']));
-
       //insère le nouveau composant à la bdd
       $reqcomposant = $bdd->prepare("INSERT INTO COMPOSANT(nomComposant, numSerie, adresseMAC, modeleComposant, fabricantComposant, typeComposant, idSalle) VALUES(?, ?, ?, ?, ?, ?, ?)");
       $reqcomposant->execute(array($nomcomposant, $numserie, $adressemac, $modelecomposant, $fabricantcomposant, $typecomposant, null));
